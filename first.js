@@ -9,9 +9,27 @@ const rl = readline.createInterface({
 });
 
 rl.on("line", function(line) {
-	let clap = 0;
-		
-	console.log(clap);
+	number = line
+	var result = 0
+	var countnum = function (number){
+		var count = 0
+		while(number>0){
+			if(number%10 == 0){
+				number = (number-number%10)/10
+				continue
+			}
+			if((number % 10)%3 == 0){
+				count++
+			}
+			number = (number-number%10)/10
+		}
+		return count
+	}
+	for(var i=0; i<=number; i++){
+		result += countnum(i)
+		console.log(i, countnum(i), result)
+	}
+	console.log(result)	
 	rl.close();
 }).on("close", function() {
 	process.exit();
